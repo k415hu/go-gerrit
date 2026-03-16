@@ -304,6 +304,9 @@ type runAsKey struct{}
 // requests. The accountID is the account ID or username of the user to run the
 // request as. Requires the RunAs capability (typically granted to administrators).
 // Use for requests that need to run as a different user than the authenticated one.
+//
+// Gerrit API docs: https://gerrit-review.googlesource.com/Documentation/access-control.html#capability_runAs
+// Gerrit API docs: https://gerrit-review.googlesource.com/Documentation/config-gerrit.html#auth.enableRunAs
 func WithRunAs(ctx context.Context, accountID string) context.Context {
 	return context.WithValue(ctx, runAsKey{}, accountID)
 }
